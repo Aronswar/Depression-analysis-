@@ -81,25 +81,15 @@ The first module of the project in which we ask user a set of five questions ove
 And the answers for this module will be of numerals 0 to 5 . Once the module executes for the first time , it will calculate the score as per the input of the user and categorise the user. If the user fall under High risk range his social media data will be analysed immediately . If he falls under medium category he will be made to take the test again after a week but still the social media data will be analysed for comparition.For this project we used a simple python based command prompt through which the user can interact with the module. 
 
 
+
+
+
 \subsection{Social Media module}
 
+The second module of the project deals with obtaining user access token to obtain the social media data . We made using facepy[] an API which makes it simple to use graph API from Facebook. The facepy APi provides us with graph.get method using which we obtained the user posts. The obtained data will be in json formot thus we used pickling to dump the data to python object. Thus we can use a dictionary class to obtain specific data else parse the total python object to classifier since the classifier has methods to differentiate symbols and characters.  
 
-Your paper's title, authors and affiliations should run across the
-full width of the page in a single column 17.8 cm (7 in.) wide.  The
-title should be in Helvetica 18-point bold; use Arial if Helvetica is
-not available.  Authors' names should be in Times Roman 12-point bold,
-and affiliations in Times Roman 12-point (note that Author and
-Affiliation are defined Styles in this template file).
 
-To position names and addresses, use a single-row table with invisible
-borders, as in this document.  Alternatively, if only one address is
-needed, use a centered tab stop to center all name and address text on
-the page; for two addresses, use two centered tab stops, and so
-on. For more than three authors, you may have to place some address
-information in a footnote, or in a named section at the end of your
-paper. Please use full international addresses and telephone dialing
-prefixes.  Leave one 10-pt line of white space below the last line of
-affiliations.
+Y
 
 \subsection{Classifier module}
 
