@@ -89,9 +89,16 @@ And the answers for this module will be of numerals 0 to 5 . Once the module exe
 The second module of the project deals with obtaining user access token to obtain the social media data . We made using facepy[] an API which makes it simple to use graph API from Facebook. The facepy APi provides us with graph.get method using which we obtained the user posts. The obtained data will be in json formot thus we used pickling to dump the data to python object. Thus we can use a dictionary class to obtain specific data else parse the total python object to classifier since the classifier has methods to differentiate symbols and characters.  
 
 
-Y
+
 
 \subsection{Classifier module}
+
+The crucial part of the project was designing the classifier which can differentiate whether the provided sentence is happy or sad. Inorder to do this we followed a simple sentiment analyser method which uses naive bayes classiers to find the frequency distribution of words. Before calling the Naive bayes classifier we uses Tokenizer method provided by NLTK API[] to tokenize the training datasets and NLTK corpora provides us with all the needed datasets one prime dataset we used is words() which provides words with their sysnonyms and exampls. Thus by comparing the dataset using the corpora and by specifying that how a happy sentence should look like we can classify the training dataset. 
+
+So, far there are no datasets specified especially for happy or sad . Thus, we assumed a fact that all the positive sentences will be happy and the negative sentences will be sad. Thus, instead classifying the datasets as positive and negative we made it as happy and sad . Inorder to classify the training datasets with atmost accuracy we have used BernoulliNB_classifier,LogisticRegression_classifie,SGDClassifier_classifier, LinearSVC_classifier, NuSVC_classifier
+
+
+
 
 Every submission should begin with an abstract of about 150 words,
 followed by a set of keywords. The abstract and keywords should be
