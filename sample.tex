@@ -42,20 +42,20 @@ breaklinks=true,
     \affaddr{University of Massachusetts}\\
     \affaddr{Lowell}\\
     \email{harun\_gunaseakran@student.uml.edu}
-  \alignauthor Lekan Osagie\\
+  \alignauthor Olalekan Osagie-Famobiwo\\
     \affaddr{University of Massachusetts}\\
     \affaddr{Lowell}\\
-    \email{lekan_osagie@student.uml.edu}
+    \email{olalekan\_osagiefamobiwo@student.uml.edu}
 }
 
 \maketitle
 
 \begin{Abstract}
-  In this project ,we implemented three modules which will work with 
- each other inorder to analyse and state whether a person is 
+  In this project ,we implement three modules which will work with 
+ each other inorder to analyse and state a person is 
  depressed or not. And the main primary objective of the project is to show
  the percentage to which the user is depressed, 
- thus the user can be directed to the available help services. By by parsing the social media data into the NLP and by analysing the answers by the user along with the classified data we can easily find the percentage to which the user is depressed.
+ thus the user can be directed to the available help services. By combining the results of all of three modules we can easily make decisions and thus by parsing the social media data into the NLP we can state whether a person is depressed or not.
 \end{abstract}
 
 \keywords{Natural Language Processing, Naive bayes Classifier, facepy} 
@@ -63,16 +63,16 @@ breaklinks=true,
 
 
 \section{Introduction}
-  It is estimated that more than 50\% of teenager’s self harm and suicides were caused by depression[5] . It is also found that the number of human beings ending their life or struggling in their life because of stress and Depression will double in the next five years(‘4th edition of the Diagnostic and Statistical Manual of Mental Disorders (DSM-IV)’). Though it is widely argued what is the main causes of Depression, many live without even realising that they struggle from depression . This includes parents of adolescents who needs proper care and support.  And it is also found that more than 70\% of depressed prefer not to talk about their issues with others, since they are scared of being bullied and misjudged[4]. The recent research works have shown how social network and mental health correlate with each other , thus by analysing one’s social network preference can determine how mentally sound they are[3].
+  It is estimated that more than 50\% of teenager’s self harm and suicides were caused by depression[5] . It is also found that the number of human beings ending their life or struggling in their life because of stress and Depression will double in the next five years(‘4th edition of the Diagnostic and Statistical Manual of Mental Disorders (DSM-IV)’). Though it is widely argued what is the main cause of depression, many live without even realising that they struggle from depression . This includes parents of adolescents who needs proper care and support.  And it is also found that more than 70\% of depressed prefer not to talk about their issues with others, since they are scared of being bullied and misjudged[4]. The recent research works have shown how social network and mental health correlate with each other , thus by analysing one’s social network preference can determine how mentally sound they are[3].
   And this is where we hope that using an Artificial Intelligence[1] as an intermediate to analyse the behaviour of the person can help and identify the depression level and thus can help them to find proper support. We intend to use the social network data from sites like facebook and also setting up questionnaires over a period of month to obtain the needed data . One of the main work done is similar field is by Microsoft research division[2] provided us with the needed base works, we found that the research work utilizes NLP to compare with the already defined dataset. And we intend to use similar approach but also use the Tags used by the user and associating them with the questionnaires.
 
 \section{Project Description}
 
-The project can be described interms of modules for easier understanding. The primary objective is to compare the modules and thus we can provide an effective result. The project uses the Natural language Toolkit along with SKLearn API[7] to implement Naive Bayes Classifier. The NLTK provides with all the needed tools such as Tokenizer, tagger parts of speech tagger. and SKlearn API provides us with the needed classifier maodules. The effective but simple way for the project to succed we are gathering the user datas over a period of a month. Our objective was to analyses every weekend thus the major activities can be discovered. 
+The project can be described interms of modules for easier understanding. The primary objective is to compare the modules and thus we can provide an effective result. The project uses the Natural language Toolkit along with SKLearn API to implement Naive Bayes Classifier. The NLTK provides us with all the needed tools such as Tokenizer, tagger parts of speech tagger. and SKlearn API provides us with the needed classifier maodules. The effective but simple way for the project to succed we are gathering the user datas over a period of a month. Our objective was to analyses every weekend thus the major activities can be discovered. 
 
 
-\section{Questionnaire Module}
-The first module of the project is the one in which we ask user a set of five questions over a period of a month. This questions are defined by psycologiest to detect the depression . Inother words each question has its own weightage thus at the end of the five questions those who score more then 20 can be considered high risk and those who score between 15 to 20 as medium and less then 15 as low risk. This modules helps us to identify and erradicate the false positive while analysing the social media data. A typical set of quetionare will be as of : 
+\section{Questionare Module}
+The first module of the project in which we ask user a set of five questions over a period of a month. This questions are defined by psycologiest to detect the depression . Inother words each question has its own weightage thus at the end of the five questions those who score more then 20 can be considered high risk and those who score between 15 to 20 as medium and less then 15 as low risk. This modules helps us to identify and erradicate the false positive while analysing the social media data. A typical set of quetionare will be as of : 
 1. Have you slept properly this week?. 
 2. How was your week interms of happiness?.
 3. Have you ever felt sad the whole week?.
@@ -86,73 +86,88 @@ And the answers for this module will be of numerals 0 to 5 . Once the module exe
 
 \subsection{Social Media module}
 
-The second module of the project deals with obtaining user access token to obtain the social media data . We made using facepy[] an API which makes it simple to use graph API from Facebook. The facepy APi[6] provides us with graph.get method using which we obtained the user posts. The obtained data will be in json formot thus we used pickling to dump the data to python object. Thus we can use a dictionary class to obtain specific data else parse the total python object to classifier since the classifier has methods to differentiate symbols and characters.  
+The second module of the project deals with obtaining user access token to obtain the social media data . We made using facepy[] an API which makes it simple to use graph API from Facebook. The facepy APi provides us with graph.get method using which we obtained the user posts. The obtained data will be in json formot thus we used pickling to dump the data to python object. Thus we can use a dictionary class to obtain specific data else parse the total python object to classifier since the classifier has methods to differentiate symbols and characters.  
 
 
 
 
 \subsection{Classifier module}
 
-The crucial part of the project was designing the classifier which can differentiate whether the provided sentence is happy or sad. Inorder to do this we followed a simple sentiment analyser method which uses naive bayes classiers to find the frequency distribution of words. Before calling the Naive bayes classifier we use Tokenizer method provided by NLTK API[] to tokenize the training datasets and NLTK corpora provides us with all the needed datasets one prime dataset we used is words method which provides words with their sysnonyms and exampls. Thus by comparing the dataset using the corpora and by specifying that how a happy sentence should look like we can classify the training dataset. 
+The crucial part of the project was designing the classifier which can differentiate whether the provided sentence is happy or sad. Inorder to do this we followed a simple sentiment analyser method which uses naive bayes classiers to find the frequency distribution of words. Before calling the Naive bayes classifier we uses Tokenizer method provided by NLTK API[] to tokenize the training datasets and NLTK corpora provides us with all the needed datasets one prime dataset we used is words() which provides words with their sysnonyms and exampls. Thus by comparing the dataset using the corpora and by specifying that how a happy sentence should look like we can classify the training dataset. 
 
-So, far there are no datasets specified especially for happy or sad . Thus, we assumed a fact that all the positive sentences will be happy and the negative sentences will be sad. Thus, instead classifying the datasets as positive and negative we made it as happy and sad . Inorder to classify the training datasets with atmost accuracy we have used Sklearn API[7] which provides BernoulliNB_classifier is like MultinomialNB, this classifier is suitable for discrete data. The difference is that while MultinomialNB works with occurrence counts, BernoulliNB is designed for binary/boolean features,LogisticRegression_classifier class implements regularized logistic regression using the ‘liblinear’ library, ‘newton-cg’, ‘sag’ and ‘lbfgs’ solvers. It can handle both dense and sparse input,SGDClassifier_classifier implements regularized linear models with stochastic gradient descent (SGD) learning: the gradient of the loss is estimated each sample at a time and the model is updated along the way with a decreasing strength schedule (aka learning rate). SGD allows minibatch (online/out-of-core) learning, LinearSVC_classifier is similar to SVC with parameter kernel=’linear’, but implemented in terms of liblinear rather than libsvm, so it has more flexibility in the choice of penalties and loss functions and should scale better to large numbers of samples. , NuSVC_classifier is Similar to SVC but uses a parameter to control the number of support vectors. 
-
-Thus, by having a voting system which votes based on the percentage of accuracy with the above models we can classify the given user statement interms of happy or sad. For this project we have included a basic classifer portal such that users can interact with the classifer .
+So, far there are no datasets specified especially for happy or sad . Thus, we assumed a fact that all the positive sentences will be happy and the negative sentences will be sad. Thus, instead classifying the datasets as positive and negative we made it as happy and sad . Inorder to classify the training datasets with atmost accuracy we have used BernoulliNB_classifier,LogisticRegression_classifie,SGDClassifier_classifier, LinearSVC_classifier, NuSVC_classifier
 
 
 
 
+Every submission should begin with an abstract of about 150 words,
+followed by a set of keywords. The abstract and keywords should be
+placed in the left column of the first page under the left half of the
+title. The abstract should be a concise statement of the problem,
+approach and conclusions of the work described.  It should clearly
+state the paper's contribution to the field of HCI.
 
+The first set of keywords will be used to index the paper in the
+proceedings. The second set are used to catalogue the paper in the ACM
+Digital Library. The latter are entries from the ACM Classification
+System~\cite{acm_categories}.  In general, it should only be necessary
+to pick one or more of the H5 subcategories, see
+http://www.acm.org/class/1998/H.5.html
 
 \subsection{Integration of modules}
 
-The main and fun part of the project has been the integaration of all the modules. We designed a chaining system which works as: 
+Please use a 10-point Times Roman font or, if this is unavailable,
+another proportional font with serifs, as close as possible in
+appearance to Times Roman 10-point. The Press 10-point font available
+to users of Script is a good substitute for Times Roman. If Times
+Roman is not available, try the font named Computer Modern Roman. On a
+Macintosh, use the font named Times and not Times New Roman. Please
+use sans-serif or non-proportional fonts only for special purposes,
+such as headings or source code text.
 
-If the user quetinare module is high risk :
-  execute (social_media module)
-  execute (classifier module)
+\section{Analysis of Result}
 
-if the user quetinare module is low risk or middle:
-   repeat quetionare module after a week:
- 
- 
- By doing so we can collect a lot of user datas such that the accuracy rate of finding depression will increase. A simple block diagram of the integration is as of:
- 
- 
- 
- 
- 
- 
- 
- 
+I had a great day at the pool today.
+('Happy', 0.7)
 
-\subsection{Analysis of Result}
+In this example the
+I am very happy.
+('Depressed', 0.8)
 
+I am not happy.
+('Happy', 0.8)
 
+Furthermore, our program isn't able to recognize certain keywords like "Happy" as being depression negative. This can be attributed to our training data set being . Because we lacked an accurate training set for depression "What do depressed people say?" Our basic assumption which was negative movie reviews implies a negative statement does not hold true in this regard, and because of that some of our results are inaccurate. Also, the accuracy of our program depends on long term results, this is because the state of someone's mind can't be completely assessed by a single post, but it can b The more information it has. So
 
-\subsection{Discussion}
+\section{Discussion}
 
 On pages beyond the first, start at the top of the page and continue
 in double-column format.  The two columns on the last page should be
 of equal length.
 
-
-\subsection{Etheical Implications}
-
-\subsection{Conclusion}
+\section{Conclusion}
+Overall this project was successful. Our program has issues in classif
 
 
 \subsection{References and Citations}
 
-1. Daróczy, Gabriella. "Artificial Intelligence and Cognitive Psychology."
-2. Choudhury, Munmun, et al. "Predicting Depression via Social Media."ICWSM. 2013.
-3. Martire, Lynn M., and Melissa M. Franks. "The role of social networks in adult health: introduction to the special issue." Health Psychology 33.6 (2014): 501.
-4. Abuse, Substance. "Mental Health Services Administration.(2009)." Results from the 2008 national survey on drug use and health: National findings(2010).
-5. Birmaher, Boris, et al. "Childhood and adolescent depression: a review of the past 10 years. Part I." Journal of the American Academy of Child & Adolescent Psychiatry 35.11 (1996): 1427-1439..
-6. Facepi API
-    https://github.com/jgorset/facepy
-7. SKLearn API
-    http://scikit-learn.org/
+Use a numbered list of references at the end of the article, ordered
+alphabetically by first author, and referenced by numbers in brackets
+[2,4,5,7]. For papers from conference proceedings, include the title
+of the paper and an abbreviated name of the conference (e.g., for
+Interact 2003 proceedings, use Proc. Interact 2003). Do not include
+the location of the conference or the exact date; do include the page
+numbers if available. See the examples of citations at the end of this
+document. Within this template file, use the References style for the
+text of your citation.
+
+Your references should be published materials accessible to the
+public.  Internal technical reports may be cited only if they are
+easily accessible (i.e., you provide the address for obtaining the
+report within your citation) and may be obtained by any reader for a
+nominal fee.  Proprietary information may not be cited. Private
+communications should be acknowledged in the main text, not referenced
+(e.g., ``[Robertson, personal communication]'').
 
 
 \bibliographystyle{abbrv}
