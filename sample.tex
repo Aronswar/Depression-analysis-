@@ -86,7 +86,7 @@ And the answers for this module will be of numerals 0 to 5 . Once the module exe
 
 \subsection{Social Media module}
 
-The second module of the project deals with obtaining user access token to obtain the social media data . We made using facepy[] an API which makes it simple to use graph API from Facebook. The facepy APi provides us with graph.get method using which we obtained the user posts. The obtained data will be in json formot thus we used pickling to dump the data to python object. Thus we can use a dictionary class to obtain specific data else parse the total python object to classifier since the classifier has methods to differentiate symbols and characters.  
+The second module of the project deals with obtaining user access token to obtain the social media data . We made using facepy[] an API which makes it simple to use graph API from Facebook. The facepy APi[6] provides us with graph.get method using which we obtained the user posts. The obtained data will be in json formot thus we used pickling to dump the data to python object. Thus we can use a dictionary class to obtain specific data else parse the total python object to classifier since the classifier has methods to differentiate symbols and characters.  
 
 
 
@@ -95,41 +95,40 @@ The second module of the project deals with obtaining user access token to obtai
 
 The crucial part of the project was designing the classifier which can differentiate whether the provided sentence is happy or sad. Inorder to do this we followed a simple sentiment analyser method which uses naive bayes classiers to find the frequency distribution of words. Before calling the Naive bayes classifier we uses Tokenizer method provided by NLTK API[] to tokenize the training datasets and NLTK corpora provides us with all the needed datasets one prime dataset we used is words() which provides words with their sysnonyms and exampls. Thus by comparing the dataset using the corpora and by specifying that how a happy sentence should look like we can classify the training dataset. 
 
-So, far there are no datasets specified especially for happy or sad . Thus, we assumed a fact that all the positive sentences will be happy and the negative sentences will be sad. Thus, instead classifying the datasets as positive and negative we made it as happy and sad . Inorder to classify the training datasets with atmost accuracy we have used BernoulliNB_classifier,LogisticRegression_classifie,SGDClassifier_classifier, LinearSVC_classifier, NuSVC_classifier
+So, far there are no datasets specified especially for happy or sad . Thus, we assumed a fact that all the positive sentences will be happy and the negative sentences will be sad. Thus, instead classifying the datasets as positive and negative we made it as happy and sad . Inorder to classify the training datasets with atmost accuracy we have used Sklearn API[7] which provides BernoulliNB_classifier is like MultinomialNB, this classifier is suitable for discrete data. The difference is that while MultinomialNB works with occurrence counts, BernoulliNB is designed for binary/boolean features,LogisticRegression_classifier class implements regularized logistic regression using the ‘liblinear’ library, ‘newton-cg’, ‘sag’ and ‘lbfgs’ solvers. It can handle both dense and sparse input,SGDClassifier_classifier implements regularized linear models with stochastic gradient descent (SGD) learning: the gradient of the loss is estimated each sample at a time and the model is updated along the way with a decreasing strength schedule (aka learning rate). SGD allows minibatch (online/out-of-core) learning, LinearSVC_classifier is similar to SVC with parameter kernel=’linear’, but implemented in terms of liblinear rather than libsvm, so it has more flexibility in the choice of penalties and loss functions and should scale better to large numbers of samples. , NuSVC_classifier is Similar to SVC but uses a parameter to control the number of support vectors. 
+
+Thus, by having a voting system which votes based on the percentage of accuracy with the above models we can classify the given user statement interms of happy or sad. For this project we have included a basic classifer portal such that users can interact with the classifer .
 
 
 
 
-Every submission should begin with an abstract of about 150 words,
-followed by a set of keywords. The abstract and keywords should be
-placed in the left column of the first page under the left half of the
-title. The abstract should be a concise statement of the problem,
-approach and conclusions of the work described.  It should clearly
-state the paper's contribution to the field of HCI.
 
-The first set of keywords will be used to index the paper in the
-proceedings. The second set are used to catalogue the paper in the ACM
-Digital Library. The latter are entries from the ACM Classification
-System~\cite{acm_categories}.  In general, it should only be necessary
-to pick one or more of the H5 subcategories, see
-http://www.acm.org/class/1998/H.5.html
 
 \subsection{Integration of modules}
 
-Please use a 10-point Times Roman font or, if this is unavailable,
-another proportional font with serifs, as close as possible in
-appearance to Times Roman 10-point. The Press 10-point font available
-to users of Script is a good substitute for Times Roman. If Times
-Roman is not available, try the font named Computer Modern Roman. On a
-Macintosh, use the font named Times and not Times New Roman. Please
-use sans-serif or non-proportional fonts only for special purposes,
-such as headings or source code text.
+The main and fun part of the project has been the integaration of all the modules. We designed a chaining system which works as: 
+
+If the user quetinare module is high risk :
+  execute (social_media module)
+  execute (classifier module)
+
+if the user quetinare module is low risk or middle:
+   repeat quetionare module after a week:
+ 
+ 
+ By doing so we can collect a lot of user datas such that the accuracy rate of finding depression will increase. A simple block diagram of the integration is as of:
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 \subsection{Analysis of Result}
 
-Leave 3 cm (1.25 in.) of blank space for the copyright notice at the
-bottom of the left column of the first page. In this template a
-floating text box will automatically generate the required space.
+
 
 \subsection{Discussion}
 
@@ -137,28 +136,23 @@ On pages beyond the first, start at the top of the page and continue
 in double-column format.  The two columns on the last page should be
 of equal length.
 
+
+\subsection{Etheical Implications}
+
 \subsection{Conclusion}
 
 
 \subsection{References and Citations}
 
-Use a numbered list of references at the end of the article, ordered
-alphabetically by first author, and referenced by numbers in brackets
-[2,4,5,7]. For papers from conference proceedings, include the title
-of the paper and an abbreviated name of the conference (e.g., for
-Interact 2003 proceedings, use Proc. Interact 2003). Do not include
-the location of the conference or the exact date; do include the page
-numbers if available. See the examples of citations at the end of this
-document. Within this template file, use the References style for the
-text of your citation.
-
-Your references should be published materials accessible to the
-public.  Internal technical reports may be cited only if they are
-easily accessible (i.e., you provide the address for obtaining the
-report within your citation) and may be obtained by any reader for a
-nominal fee.  Proprietary information may not be cited. Private
-communications should be acknowledged in the main text, not referenced
-(e.g., ``[Robertson, personal communication]'').
+1. Daróczy, Gabriella. "Artificial Intelligence and Cognitive Psychology."
+2. Choudhury, Munmun, et al. "Predicting Depression via Social Media."ICWSM. 2013.
+3. Martire, Lynn M., and Melissa M. Franks. "The role of social networks in adult health: introduction to the special issue." Health Psychology 33.6 (2014): 501.
+4. Abuse, Substance. "Mental Health Services Administration.(2009)." Results from the 2008 national survey on drug use and health: National findings(2010).
+5. Birmaher, Boris, et al. "Childhood and adolescent depression: a review of the past 10 years. Part I." Journal of the American Academy of Child & Adolescent Psychiatry 35.11 (1996): 1427-1439..
+6. Facepi API
+    https://github.com/jgorset/facepy
+7. SKLearn API
+    http://scikit-learn.org/
 
 
 \bibliographystyle{abbrv}
