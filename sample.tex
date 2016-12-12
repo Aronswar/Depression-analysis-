@@ -42,20 +42,20 @@ breaklinks=true,
     \affaddr{University of Massachusetts}\\
     \affaddr{Lowell}\\
     \email{harun\_gunaseakran@student.uml.edu}
-  \alignauthor Author 2\\
-    \affaddr{Affiliation}\\
-    \affaddr{Affiliation}\\
-    \email{author2@b.com}
+  \alignauthor Lekan Osagie\\
+    \affaddr{University of Massachusetts}\\
+    \affaddr{Lowell}\\
+    \email{lekan_osagie@student.uml.edu}
 }
 
 \maketitle
 
 \begin{Abstract}
-  In this project ,we implement three modules which will work with 
- each other inorder to analyse and state a person is 
+  In this project ,we implemented three modules which will work with 
+ each other inorder to analyse and state whether a person is 
  depressed or not. And the main primary objective of the project is to show
  the percentage to which the user is depressed, 
- thus the user can be directed to the available help services. By combining the results of all of three modules we can easily make decisions and thus by parsing the social media data into the NLP we can state whether a person is depressed or not.
+ thus the user can be directed to the available help services. By by parsing the social media data into the NLP and by analysing the answers by the user along with the classified data we can easily find the percentage to which the user is depressed.
 \end{abstract}
 
 \keywords{Natural Language Processing, Naive bayes Classifier, facepy} 
@@ -68,11 +68,11 @@ breaklinks=true,
 
 \section{Project Description}
 
-The project can be described interms of modules for easier understanding. The primary objective is to compare the modules and thus we can provide an effective result. The project uses the Natural language Toolkit along with SKLearn API to implement Naive Bayes Classifier. The NLTK provides with all the needed tools such as Tokenizer, tagger parts of speech tagger. and SKlearn API provides us with the needed classifier maodules. The effective but simple way for the project to succed we are gathering the user datas over a period of a month. Our objective was to analyses every weekend thus the major activities can be discovered. 
+The project can be described interms of modules for easier understanding. The primary objective is to compare the modules and thus we can provide an effective result. The project uses the Natural language Toolkit along with SKLearn API[7] to implement Naive Bayes Classifier. The NLTK provides with all the needed tools such as Tokenizer, tagger parts of speech tagger. and SKlearn API provides us with the needed classifier maodules. The effective but simple way for the project to succed we are gathering the user datas over a period of a month. Our objective was to analyses every weekend thus the major activities can be discovered. 
 
 
-\section{Quetionare Module}
-The first module of the project in which we ask user a set of five questions over a period of a month. This questions are defined by psycologiest to detect the depression . Inother words each question has its own weightage thus at the end of the five questions those who score more then 20 can be considered high risk and those who score between 15 to 20 as medium and less then 15 as low risk. This modules helps us to identify and erradicate the false positive while analysing the social media data. A typical set of quetionare will be as of : 
+\section{Questionnaire Module}
+The first module of the project is the one in which we ask user a set of five questions over a period of a month. This questions are defined by psycologiest to detect the depression . Inother words each question has its own weightage thus at the end of the five questions those who score more then 20 can be considered high risk and those who score between 15 to 20 as medium and less then 15 as low risk. This modules helps us to identify and erradicate the false positive while analysing the social media data. A typical set of quetionare will be as of : 
 1. Have you slept properly this week?. 
 2. How was your week interms of happiness?.
 3. Have you ever felt sad the whole week?.
@@ -93,7 +93,7 @@ The second module of the project deals with obtaining user access token to obtai
 
 \subsection{Classifier module}
 
-The crucial part of the project was designing the classifier which can differentiate whether the provided sentence is happy or sad. Inorder to do this we followed a simple sentiment analyser method which uses naive bayes classiers to find the frequency distribution of words. Before calling the Naive bayes classifier we uses Tokenizer method provided by NLTK API[] to tokenize the training datasets and NLTK corpora provides us with all the needed datasets one prime dataset we used is words() which provides words with their sysnonyms and exampls. Thus by comparing the dataset using the corpora and by specifying that how a happy sentence should look like we can classify the training dataset. 
+The crucial part of the project was designing the classifier which can differentiate whether the provided sentence is happy or sad. Inorder to do this we followed a simple sentiment analyser method which uses naive bayes classiers to find the frequency distribution of words. Before calling the Naive bayes classifier we use Tokenizer method provided by NLTK API[] to tokenize the training datasets and NLTK corpora provides us with all the needed datasets one prime dataset we used is words method which provides words with their sysnonyms and exampls. Thus by comparing the dataset using the corpora and by specifying that how a happy sentence should look like we can classify the training dataset. 
 
 So, far there are no datasets specified especially for happy or sad . Thus, we assumed a fact that all the positive sentences will be happy and the negative sentences will be sad. Thus, instead classifying the datasets as positive and negative we made it as happy and sad . Inorder to classify the training datasets with atmost accuracy we have used Sklearn API[7] which provides BernoulliNB_classifier is like MultinomialNB, this classifier is suitable for discrete data. The difference is that while MultinomialNB works with occurrence counts, BernoulliNB is designed for binary/boolean features,LogisticRegression_classifier class implements regularized logistic regression using the ‘liblinear’ library, ‘newton-cg’, ‘sag’ and ‘lbfgs’ solvers. It can handle both dense and sparse input,SGDClassifier_classifier implements regularized linear models with stochastic gradient descent (SGD) learning: the gradient of the loss is estimated each sample at a time and the model is updated along the way with a decreasing strength schedule (aka learning rate). SGD allows minibatch (online/out-of-core) learning, LinearSVC_classifier is similar to SVC with parameter kernel=’linear’, but implemented in terms of liblinear rather than libsvm, so it has more flexibility in the choice of penalties and loss functions and should scale better to large numbers of samples. , NuSVC_classifier is Similar to SVC but uses a parameter to control the number of support vectors. 
 
